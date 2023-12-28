@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/app_bar_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom">
+        <menu
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <item
+                android:id="@+id/action_settings_security"
+                android:icon="@drawable/ic_fingerprint"
+                android:title="@string/security"/>
+            <item
+                android:id="@+id/action_settings_account"
+                android:icon="@drawable/ic_account"
+                android:title="@string/account"/>
+            <item
+                android:id="@+id/action_settings_storage"
+                android:icon="@drawable/ic_storage"
+                android:title="@string/storage"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_more_about"
+        android:title="@string/about"
+        app:showAsAction="collapseActionView"/>
+    <item
+        android:id="@+id/action_more_help"
+        android:title="@string/help"
+        app:showAsAction="collapseActionView" />
+
+</menu>

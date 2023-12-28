@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/video_toolbar_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:icon="@drawable/ic_sharp_video"
+        android:title="@string/videos"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/image_toolbar_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:icon="@drawable/ic_image"
+        android:title="@string/images"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/doc_toolbar_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:icon="@drawable/ic_document_base"
+        android:title="@string/documents"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/audio_toolbar_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:icon="@drawable/baseline_audiotrack_24"
+        android:title="@string/audios"
+        app:showAsAction="always|withText" />
+</menu>
