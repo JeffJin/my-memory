@@ -1,17 +1,51 @@
 package io.eworks.memory
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import io.eworks.memory.databinding.ActivityMainBinding
+import io.eworks.memory.ui.files.FilesFragment
+import io.eworks.memory.ui.home.HomeFragment
+import io.eworks.memory.ui.more_options.MoreOptionsFragment
+import io.eworks.memory.ui.shared.SharedFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+//    private val homeFragment: HomeFragment;
+//    private val sharedFragment: SharedFragment;
+//    private val moreOptionsFragment: MoreOptionsFragment;
+//    private val filesFragment: FilesFragment;
+
+//    init {
+//        Log.d("MainActivity", "init fragments")
+//        homeFragment = HomeFragment()
+//        sharedFragment = SharedFragment()
+//        moreOptionsFragment = MoreOptionsFragment()
+//        filesFragment = FilesFragment()
+//    }
+
+//    private val mOnNavItemSelectedListener = NavigationBarView.OnItemSelectedListener { item ->
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+//
+//        when (item.itemId) {
+//            R.id.navigation_home -> transaction.replace(R.id.main_container, homeFragment)
+//            R.id.navigation_shared -> transaction.replace(R.id.main_container, sharedFragment)
+//            R.id.navigation_more -> transaction.replace(R.id.main_container, moreOptionsFragment)
+//            R.id.navigation_files -> transaction.replace(R.id.main_container, filesFragment)
+//        }
+//        transaction.commit()
+//        true
+//    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +65,10 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_more))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+//        navView.setOnItemSelectedListener(mOnNavItemSelectedListener)
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.add(R.id.main_container, homeFragment)
+//        transaction.commit()
     }
 }

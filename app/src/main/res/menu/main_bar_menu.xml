@@ -10,34 +10,29 @@
         app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
     <item
-        android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom">
-        <menu
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <item
-                android:id="@+id/action_settings_security"
-                android:icon="@drawable/ic_fingerprint"
-                android:title="@string/security"/>
-            <item
-                android:id="@+id/action_settings_account"
-                android:icon="@drawable/ic_account"
-                android:title="@string/account"/>
-            <item
-                android:id="@+id/action_settings_storage"
-                android:icon="@drawable/ic_storage"
-                android:title="@string/storage"/>
-        </menu>
-    </item>
+        android:id="@+id/action_settings_account"
+        android:icon="@drawable/ic_account"
+        android:title="@string/account"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings_security"
+        android:icon="@drawable/ic_fingerprint"
+        android:title="@string/security"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_settings_storage"
+        android:icon="@drawable/ic_storage"
+        android:title="@string/storage"
+        app:showAsAction="collapseActionView" />
     <item
         android:id="@+id/action_more_about"
         android:title="@string/about"
+        android:icon="@drawable/ic_about"
         app:showAsAction="collapseActionView"/>
     <item
         android:id="@+id/action_more_help"
         android:title="@string/help"
+        android:icon="@drawable/ic_help"
         app:showAsAction="collapseActionView" />
 
 </menu>
