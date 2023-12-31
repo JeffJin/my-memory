@@ -1,23 +1,22 @@
 package io.eworks.common.services
 
-import com.github.kittinunf.fuel.core.ResponseDeserializable
+import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.httpGet
-import com.google.gson.Gson
-import io.eworks.common.models.WikiResult
-import java.io.Reader
 
 class AdworksDataProvider {
-
+    init {
+        FuelManager.instance.baseHeaders = mapOf("User-Agent" to "Adworks my-memory")
+    }
     fun searchWiki(term: String, skip: Int, take: Int) {
         Urls.getSearchUrl(term, skip, take).httpGet()
-            .responseObject(WikiDataDeserializer()){req, res, result ->
+            .responseObject(WikiDataDeserializer()){ _, res, result ->
+                if (res.statusCode != 200) {
+                   throw Exception("Unable to get resources")
+                }
+
                 val(data, _) = result
             }
     }
-    class WikiDataDeserializer: ResponseDeserializable<WikiResult> {
-        override fun deserialize(reader: Reader): WikiResult? {
 
-            return Gson().fromJson(reader, WikiResult:: class.java)
-        }
-    }
 }
+

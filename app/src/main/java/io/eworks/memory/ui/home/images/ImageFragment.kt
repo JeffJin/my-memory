@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.kittinunf.fuel.httpGet
 import io.eworks.common.services.AdworksDataProvider
+import io.eworks.common.services.ImageDataDeserializer
 import io.eworks.common.services.Urls
+import io.eworks.common.services.WikiDataDeserializer
 import io.eworks.memory.R
 import io.eworks.memory.ui.home.images.placeholder.PlaceholderContent
 
@@ -68,9 +70,9 @@ class ImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Urls.getRandomUrl(5).httpGet()
-            .responseObject(AdworksDataProvider.WikiDataDeserializer()){ _, _, result ->
-                Log.d("Http Wiki API", result.toString())
+        Urls.AdworksImageApiUrl.httpGet()
+            .responseObject(ImageDataDeserializer()){ _, _, result ->
+                Log.d("Http Adworks Image API", result.toString())
             }
     }
 
