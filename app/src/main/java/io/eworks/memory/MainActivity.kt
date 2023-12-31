@@ -1,5 +1,6 @@
 package io.eworks.memory
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,12 @@ import com.google.android.material.navigation.NavigationBarView
 import io.eworks.memory.databinding.ActivityMainBinding
 import io.eworks.memory.ui.files.FilesFragment
 import io.eworks.memory.ui.home.HomeFragment
+import io.eworks.memory.ui.home.images.ImageFragment
 import io.eworks.memory.ui.more_options.MoreOptionsFragment
 import io.eworks.memory.ui.shared.SharedFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),
+    HomeFragment.OnFragmentInteractionListener, ImageFragment.OnFragmentInteractionListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -70,5 +73,13 @@ class MainActivity : AppCompatActivity() {
 //        val transaction = supportFragmentManager.beginTransaction()
 //        transaction.add(R.id.main_container, homeFragment)
 //        transaction.commit()
+    }
+
+    override fun messageFromParentFragment(uri: Uri?) {
+        Log.i("TAG", "received communication from parent fragment");
+    }
+
+    override fun messageFromChildFragment(uri: Uri?) {
+        Log.i("TAG", "received communication from child fragment");
     }
 }

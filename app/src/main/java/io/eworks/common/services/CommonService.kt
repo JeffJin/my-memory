@@ -1,7 +1,6 @@
 package io.eworks.common.services
 
 import io.eworks.common.models.Category
-import io.eworks.common.models.Video
 
 object CommonService {
 
@@ -21,3 +20,4 @@ object CommonService {
         return categories
     }
 }
+
