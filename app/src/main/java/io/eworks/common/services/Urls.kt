@@ -4,6 +4,8 @@ object Urls {
     const val AdworksBaseUrl = "http://localhost:5000"
     const val AdworksHubUrl = "$AdworksBaseUrl/"
     const val AdworksApiBaseUrl = "$AdworksBaseUrl/api"
+    const val AdworksImageApiUrl = "$AdworksApiBaseUrl/images"
+    const val AdworksVideoApiUrl = "$AdworksApiBaseUrl/videos"
 
     const val WikiBaseUrl = "https://en.wikipedia.org/w/api.php"
     fun getSearchUrl(term: String, skip: Int, take: Int): String {
