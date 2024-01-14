@@ -3,21 +3,15 @@ package io.eworks.memory.ui.home.images
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.kittinunf.fuel.httpGet
 import io.eworks.common.services.AdworksDataProvider
-import io.eworks.common.services.ImageDataDeserializer
-import io.eworks.common.services.Urls
-import io.eworks.common.services.WikiDataDeserializer
 import io.eworks.memory.R
-import io.eworks.memory.ui.home.images.placeholder.PlaceholderContent
 
 
 /**
@@ -36,22 +30,19 @@ class ImageFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.image_list, container, false)
-
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = ImageRecyclerViewAdapter(PlaceholderContent.ITEMS)
-            }
-        }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.image_list)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = context?.let { ImageRecyclerViewAdapter(it, AdworksDataProvider.sampleImages) }
+//            with(recyclerView) {
+//                layoutManager = when {
+//                    columnCount <= 1 -> LinearLayoutManager(context)
+//                    else -> GridLayoutManager(context, columnCount)
+//                }
+//                adapter = ImageRecyclerViewAdapter(context, AdworksDataProvider.sampleImages)
+//            }
         return view
     }
 
@@ -70,10 +61,15 @@ class ImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Urls.AdworksImageApiUrl.httpGet()
-            .responseObject(ImageDataDeserializer()){ _, _, result ->
-                Log.d("Http Adworks Image API", result.toString())
-            }
+//        Urls.getRandomUrl(5).httpGet()
+//            .responseObject(WikiDataDeserializer()){ req, re, result ->
+//                Log.d("Http Wiki API", result.toString())
+//            }
+//
+//        Urls.AdworksImageApiUrl.httpGet()
+//            .responseObject(ImageDataDeserializer()){ req, res, result ->
+//                Log.d("Http Adworks Image API", result.toString())
+//            }
     }
 
     override fun onDetach() {
@@ -84,7 +80,7 @@ class ImageFragment : Fragment() {
     companion object {
 
         // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
+        const val ARG_COLUMN_COUNT = "2"
 
         // TODO: Customize parameter initialization
         @JvmStatic

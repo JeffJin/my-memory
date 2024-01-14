@@ -4,7 +4,7 @@ object Urls {
     const val AdworksBaseUrl = "http://localhost:5000"
     const val AdworksHubUrl = "$AdworksBaseUrl/"
     const val AdworksApiBaseUrl = "$AdworksBaseUrl/api"
-    const val AdworksImageApiUrl = "$AdworksApiBaseUrl/images"
+    const val AdworksImageApiUrl = "http://127.0.0.1:5000/api/images"
     const val AdworksVideoApiUrl = "$AdworksApiBaseUrl/videos"
 
     const val WikiBaseUrl = "https://en.wikipedia.org/w/api.php"

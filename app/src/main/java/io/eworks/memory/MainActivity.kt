@@ -9,13 +9,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
 import io.eworks.memory.databinding.ActivityMainBinding
-import io.eworks.memory.ui.files.FilesFragment
 import io.eworks.memory.ui.home.HomeFragment
 import io.eworks.memory.ui.home.images.ImageFragment
-import io.eworks.memory.ui.more_options.MoreOptionsFragment
-import io.eworks.memory.ui.shared.SharedFragment
+
 
 class MainActivity : AppCompatActivity(),
     HomeFragment.OnFragmentInteractionListener, ImageFragment.OnFragmentInteractionListener {
@@ -83,3 +80,5 @@ class MainActivity : AppCompatActivity(),
         Log.i("TAG", "received communication from child fragment");
     }
 }
+
+

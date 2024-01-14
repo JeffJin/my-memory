@@ -56,4 +56,5 @@ dependencies {
     implementation("com.github.kittinunf.fuel:fuel:2.3.1")
     implementation("com.github.kittinunf.fuel:fuel-android:2.3.1")
     implementation("com.github.kittinunf.fuel:fuel-gson:2.3.1")
+
 }
