@@ -27,7 +27,7 @@ class ImageRecyclerViewAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-//        holder.imageView?.setImageResource(item.drawableSrc)
+        holder.imageView?.setImageResource(item.drawableSrc)
         holder.textView?.text = item.title
     }
 
